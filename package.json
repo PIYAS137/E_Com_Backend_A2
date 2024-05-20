@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon dist/App/Server.js",
+    "start": "nodemon dist/App/Server.js",
     "lint": "eslint src/App/Server.ts --ignore-path .eslintignore --ext .ts",
-    "lint:fix":"npm run lint --fix",
+    "lint:fix": "npm run lint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,7 +17,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.4.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
