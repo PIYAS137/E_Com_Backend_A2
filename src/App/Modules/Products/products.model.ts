@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { Inventory_Type, Product_Type, Variants_Type } from "./products.interface";
+import { Custom_Product_Model, Inventory_Type, Product_Type, Variants_Type } from "./products.interface";
 
 
 const Variants_Schema = new Schema<Variants_Type>({
@@ -24,7 +24,7 @@ const Inventory_Schema = new Schema<Inventory_Type>({
     }
 })
 
-const Product_Schema = new Schema<Product_Type>({
+const Product_Schema = new Schema<Product_Type,Custom_Product_Model>({
     name: {
         type : String,
         required : true
@@ -50,4 +50,9 @@ const Product_Schema = new Schema<Product_Type>({
 })
 
 
-export const Product_Model = model<Product_Type>('products',Product_Schema);
+Product_Schema.statics.isExist = async function(id:string){
+    const isReallyExist = await Product_Model.findOne({_id : id});
+    return isReallyExist;
+}
+
+export const Product_Model = model<Product_Type,Custom_Product_Model>('products',Product_Schema);
