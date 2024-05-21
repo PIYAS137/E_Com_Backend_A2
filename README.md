@@ -1,4 +1,4 @@
-## API's:
+## API's :
 | About  | Method  | Endpoint |
 | :------------ |:---------------:|  -----:|
 | create a product      | POST | /api/products |
