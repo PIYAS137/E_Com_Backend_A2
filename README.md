@@ -15,7 +15,7 @@ https://assignment2-pied-three.vercel.app
 | get all orders  | GET | /api/orders |
 | search a order by email| GET | /api/orders?email=piyasmahmudealif@gmail.com |
 
-## How To Run In Local Server :
+## How To Run on Local Server :
 > Note: `node.js` must be downloaded on the computer!.
 - At first clone the git repository
 ```sh
