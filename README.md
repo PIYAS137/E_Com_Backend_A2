@@ -1,3 +1,7 @@
+## Base URL : 
+```sh
+https://assignment2-pied-three.vercel.app
+```
 ## API's :
 | About  | Method  | Endpoint |
 | :------------ |:---------------:|  -----:|
