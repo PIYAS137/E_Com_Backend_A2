@@ -14,4 +14,6 @@ export interface Custom_Order_Model extends Model<Order_Type>{
     getProduct_Quantity (id:string) : Promise<number|null>
     // Update Product Quantity after order
     updateProduct_Quantity (id:string,q:number) : Promise<string|number|null>
+    // Update inStock Property 
+    updateInStock_Status (id:string) : Promise<boolean|null>
 }

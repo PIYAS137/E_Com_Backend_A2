@@ -46,7 +46,19 @@ Order_Schema.statics.updateProduct_Quantity = async function (id: string, q: num
         return -1; // if the product is modified after query and before the update !
     }
 }
-
+// Update inStock property
+Order_Schema.statics.updateInStock_Status = async function (id: string) {
+    const product: Product_Type | null = await Product_Model.findOne({ _id: id });
+    if (product) {
+        const updatedDoc = {
+            $set: {
+                "inventory.inStock": false
+            }
+        }
+        const result = await Product_Model.updateOne({ _id: id }, updatedDoc);
+        return result;
+    }
+}
 
 
 export const Order_Model = model<Order_Type, Custom_Order_Model>('Order', Order_Schema);
