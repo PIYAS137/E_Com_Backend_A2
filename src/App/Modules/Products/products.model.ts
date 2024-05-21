@@ -46,7 +46,7 @@ const Product_Schema = new Schema<Product_Type,Custom_Product_Model>({
         required : true
     },
     variants: [Variants_Schema],
-    inventory: [Inventory_Schema]
+    inventory: Inventory_Schema
 })
 
 

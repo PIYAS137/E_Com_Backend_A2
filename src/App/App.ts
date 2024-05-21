@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import { Product_Router } from './Modules/Products/products.router'
+import { Order_Router } from './Modules/Orders/order.router'
 
 const app = express()
 // parser===========================================================>>>
@@ -18,9 +19,11 @@ const initialController = (req: Request, res: Response) => {
 }
 
 // Product Router
-app.use('/api', Product_Router)
+app.use('/api', Product_Router);
+// Order Router
+app.use('/api',Order_Router);
 // Initial Router
-app.get('/', initialController)
+app.get('/', initialController);
 
 
 // Route Not Found Handler Function ===============================>>>

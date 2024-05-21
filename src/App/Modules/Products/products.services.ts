@@ -6,7 +6,9 @@ import { Product_Zod_Schema } from "./products.zod.validation";
 // Create A Product Service
 const Create_Product_Service = async (newProduct: Product_Type) => {
     const validatedData = Product_Zod_Schema.parse(newProduct)
+    console.log("After Validate =====>",validatedData);
     const result = await Product_Model.create(validatedData)
+    console.log("After POST Data =====>",result);
     return result;
 }
 
@@ -60,7 +62,12 @@ const Search_By_Tag = async (tagText:string) => {
         {
             $unwind: "$tags"
         },{
-            $match : {tags: { $regex: tagText, $options: 'i' }}
+            $match : {
+                $or : [
+                    {tags: { $regex: tagText, $options: 'i' }},
+                    {name: { $regex: tagText, $options: 'i' }}
+                ]
+            }
         },{
             $group : {
                 _id: "$_id",
